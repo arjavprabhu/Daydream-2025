@@ -1,10 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://big88dobv87f"]
 
-[ext_resource type="Texture2D" uid="uid://dtephumkypybd" path="res://icon.svg" id="1_w6aom"]
+[ext_resource type="Texture2D" uid="uid://hdbhrf5yo1j1" path="res://Sprites/door.png" id="1_w6aom"]
 
 [sub_resource type="GDScript" id="GDScript_p0e35"]
 script/source = "extends Area2D
-@onready var game_manager = %GameManager
+
+@onready var game_manager: Node = $\"../GameManager\"
+
 var entered = false
 
 func _on_body_entered(body: CharacterBody2D):
@@ -13,8 +15,7 @@ func _on_body_entered(body: CharacterBody2D):
 
 func _on_body_exited(body):
 	entered = false
-	game_manager.add_score(1)
-
+	Globals.score += 1
 func _process(delta):
 	if entered == true:
 		if Input.is_action_just_pressed(\"action\"):
@@ -22,17 +23,20 @@ func _process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fahql"]
-size = Vector2(123, 123)
+size = Vector2(26.5, 37)
 
 [node name="Door" type="Area2D"]
+position = Vector2(-4, -6)
 collision_layer = 2
 script = SubResource("GDScript_p0e35")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_w6aom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(2.25, 3.5)
 shape = SubResource("RectangleShape2D_fahql")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://bpox4ixkaqc5r"]
+[gd_scene load_steps=8 format=4 uid="uid://bpox4ixkaqc5r"]
 
-[ext_resource type="Script" uid="uid://dltv3jey6hatd" path="res://Scripts/game_manager.gd" id="1_b3jer"]
 [ext_resource type="PackedScene" uid="uid://cdl2lsp3g5ud6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://x1p4i0qg3o2j" path="res://Sprites/tileset.png" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://dltv3jey6hatd" path="res://Scripts/game_manager.gd" id="2_ym6bh"]
 [ext_resource type="PackedScene" uid="uid://big88dobv87f" path="res://Scenes/door.tscn" id="3_1psgh"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
+[sub_resource type="GDScript" id="GDScript_b3jer"]
+script/source = "extends Node2D
+"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1psgh"]
 texture = ExtResource("2_qxrlw")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -365,17 +369,27 @@ texture = ExtResource("2_qxrlw")
 
 [sub_resource type="TileSet" id="TileSet_3dryh"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_wrm1d")
+sources/0 = SubResource("TileSetAtlasSource_1psgh")
 
 [node name="World 1" type="Node2D"]
+position = Vector2(-2, -23)
+script = SubResource("GDScript_b3jer")
 
 [node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_b3jer")
+script = ExtResource("2_ym6bh")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = -89.0
+offset_top = -60.0
+offset_right = -28.0
+offset_bottom = -37.0
+text = "Score: 0"
+
+[node name="Door" parent="." instance=ExtResource("3_1psgh")]
+position = Vector2(61, -7)
 
 [node name="Player" parent="." instance=ExtResource("1_ebmjs")]
 position = Vector2(1, -9)
-collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -384,6 +398,3 @@ position_smoothing_enabled = true
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_3dryh")
-
-[node name="Door" parent="." instance=ExtResource("3_1psgh")]
-position = Vector2(82, -52)
