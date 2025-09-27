@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://bpox4ixkaqc5r"]
+[gd_scene load_steps=10 format=4 uid="uid://bpox4ixkaqc5r"]
 
 [ext_resource type="PackedScene" uid="uid://cdl2lsp3g5ud6" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="FontFile" uid="uid://4o8lcrkes1en" path="res://fonts/PixelOperator8.ttf" id="2_qqdmt"]
 [ext_resource type="Texture2D" uid="uid://x1p4i0qg3o2j" path="res://Sprites/tileset.png" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://dltv3jey6hatd" path="res://Scripts/game_manager.gd" id="2_ym6bh"]
 [ext_resource type="PackedScene" uid="uid://big88dobv87f" path="res://Scenes/door.tscn" id="3_1psgh"]
+[ext_resource type="PackedScene" uid="uid://e81vkru8up85" path="res://Scenes/enemy.tscn" id="6_qqdmt"]
 
 [sub_resource type="GDScript" id="GDScript_b3jer"]
 script/source = "extends Node2D
@@ -411,3 +412,6 @@ position = Vector2(1, -9)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource("6_qqdmt")]
+position = Vector2(-35, -2)
