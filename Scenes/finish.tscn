@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxy2vkt5hwaqq"]
+
+[ext_resource type="FontFile" uid="uid://4o8lcrkes1en" path="res://fonts/PixelOperator8.ttf" id="1_nv66a"]
+[ext_resource type="Texture2D" uid="uid://cllvkpwdxh5d6" path="res://Sprites/bg.png" id="1_o6pr6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(-4.500004, 6)
+scale = Vector2(124.5, 77)
+texture = ExtResource("1_o6pr6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -93.0
+offset_top = -14.0
+offset_right = 115.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0.7647059, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("1_nv66a")
+text = "Congratulations!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)

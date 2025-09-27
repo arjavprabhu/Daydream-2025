@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://wyyfjexm5iyq"]
+[gd_scene load_steps=7 format=3 uid="uid://7gc54sy5bgbl"]
 
 [ext_resource type="Script" uid="uid://dvol8db6f14n6" path="res://Scripts/saw.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://blkro7ui4dudx" path="res://Sprites/saw.png" id="2_1f0kj"]

@@ -10,4 +10,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_body_entered(body) -> void:
 	if body == player:
-		Globals.health -= 25
+		Globals.health_loss(25)

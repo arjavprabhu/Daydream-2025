@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl2ohf1bgbe6m"]
+
+[ext_resource type="Texture2D" uid="uid://cllvkpwdxh5d6" path="res://Sprites/bg.png" id="1_8fo1c"]
+[ext_resource type="FontFile" uid="uid://4o8lcrkes1en" path="res://fonts/PixelOperator8.ttf" id="1_ojehl"]
+
+[node name="Game over" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(4.5, -3)
+scale = Vector2(120.5, 70)
+texture = ExtResource("1_8fo1c")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -63.0
+offset_top = -15.0
+offset_right = 61.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.93119615, 0, 0.19097263, 1)
+theme_override_fonts/font = ExtResource("1_ojehl")
+text = "Game Over"
+
+[node name="Camera2D" type="Camera2D" parent="Label"]
+position = Vector2(63, 16)
+zoom = Vector2(5, 5)
