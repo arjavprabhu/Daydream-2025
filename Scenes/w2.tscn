@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cdl2lsp3g5ud6" path="res://Scenes/player.tscn" id="1_wq5if"]
 [ext_resource type="Texture2D" uid="uid://x1p4i0qg3o2j" path="res://Sprites/tileset.png" id="2_yx3wc"]
-[ext_resource type="Script" uid="uid://bdsnmhyvbgefb" path="res://Scripts/score_tracker.gd" id="3_yx3wc"]
+[ext_resource type="Script" uid="uid://bdsnmhyvbgefb" path="res://Scenes/score_tracker.gd" id="3_yx3wc"]
 [ext_resource type="FontFile" uid="uid://4o8lcrkes1en" path="res://fonts/PixelOperator8.ttf" id="4_1g5c0"]
-[ext_resource type="PackedScene" uid="uid://le3c4bm30ibu" path="res://Scenes/enemy.tscn" id="5_mj61x"]
+[ext_resource type="PackedScene" path="res://Scenes/enemy.tscn" id="5_mj61x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wq5if"]
 texture = ExtResource("2_yx3wc")
@@ -370,6 +370,9 @@ sources/0 = SubResource("TileSetAtlasSource_wq5if")
 
 [node name="World 2" type="Node2D"]
 
+[node name="Enemy" parent="." instance=ExtResource("5_mj61x")]
+position = Vector2(40, 0)
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_yx3wc")
@@ -392,6 +395,3 @@ position = Vector2(-54, -53)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-
-[node name="Enemy" parent="." instance=ExtResource("5_mj61x")]
-position = Vector2(40, 0)
