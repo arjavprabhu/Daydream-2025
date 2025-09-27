@@ -4,7 +4,7 @@
 
 [sub_resource type="GDScript" id="GDScript_p0e35"]
 script/source = "extends Area2D
-
+@onready var game_manager = %GameManager
 var entered = false
 
 func _on_body_entered(body: CharacterBody2D):
@@ -13,6 +13,7 @@ func _on_body_entered(body: CharacterBody2D):
 
 func _on_body_exited(body):
 	entered = false
+	game_manager.add_score(1)
 
 func _process(delta):
 	if entered == true:
