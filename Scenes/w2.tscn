@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://xhu5f38y5as6"]
+[gd_scene load_steps=7 format=4 uid="uid://xhu5f38y5as6"]
 
 [ext_resource type="PackedScene" uid="uid://cdl2lsp3g5ud6" path="res://Scenes/player.tscn" id="1_wq5if"]
 [ext_resource type="Texture2D" uid="uid://x1p4i0qg3o2j" path="res://Sprites/tileset.png" id="2_yx3wc"]
 [ext_resource type="Script" uid="uid://bdsnmhyvbgefb" path="res://Scenes/score_tracker.gd" id="3_yx3wc"]
+[ext_resource type="FontFile" uid="uid://4o8lcrkes1en" path="res://fonts/PixelOperator8.ttf" id="4_1g5c0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wq5if"]
 texture = ExtResource("2_yx3wc")
@@ -368,13 +369,6 @@ sources/0 = SubResource("TileSetAtlasSource_wq5if")
 
 [node name="World 2" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_wq5if")]
-position = Vector2(2, -52)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_yx3wc")
@@ -387,4 +381,13 @@ offset_left = -92.0
 offset_top = -51.0
 offset_right = -31.0
 offset_bottom = -28.0
+theme_override_fonts/font = ExtResource("4_1g5c0")
 text = "Score: 0"
+
+[node name="Player" parent="." instance=ExtResource("1_wq5if")]
+z_index = 5
+position = Vector2(2, -52)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true

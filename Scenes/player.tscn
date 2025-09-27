@@ -38,7 +38,7 @@ shape = SubResource("CircleShape2D_fkybt")
 script = SubResource("GDScript_vgqql")
 
 [node name="ProgressBar" parent="." instance=ExtResource("4_vgqql")]
-offset_left = -115.0
-offset_top = -58.0
-offset_right = 98.0
-offset_bottom = -31.0
+offset_left = -17.0
+offset_top = -26.0
+offset_right = 16.0
+offset_bottom = -19.0

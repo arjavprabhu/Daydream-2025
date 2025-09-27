@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://bpox4ixkaqc5r"]
+[gd_scene load_steps=9 format=4 uid="uid://bpox4ixkaqc5r"]
 
 [ext_resource type="PackedScene" uid="uid://cdl2lsp3g5ud6" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="FontFile" uid="uid://4o8lcrkes1en" path="res://fonts/PixelOperator8.ttf" id="2_qqdmt"]
 [ext_resource type="Texture2D" uid="uid://x1p4i0qg3o2j" path="res://Sprites/tileset.png" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://dltv3jey6hatd" path="res://Scripts/game_manager.gd" id="2_ym6bh"]
 [ext_resource type="PackedScene" uid="uid://big88dobv87f" path="res://Scenes/door.tscn" id="3_1psgh"]
@@ -379,22 +380,34 @@ script = SubResource("GDScript_b3jer")
 script = ExtResource("2_ym6bh")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = -89.0
+offset_left = -111.0
 offset_top = -60.0
-offset_right = -28.0
+offset_right = -9.0
 offset_bottom = -37.0
+theme_override_fonts/font = ExtResource("2_qqdmt")
 text = "Score: 0"
 
 [node name="Door" parent="." instance=ExtResource("3_1psgh")]
 position = Vector2(61, -7)
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_3dryh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 45.0
+offset_top = -30.0
+offset_right = 83.0
+offset_bottom = -22.0
+theme_override_colors/font_color = Color(0.8760638, 0.16215235, 0.31118712, 1)
+theme_override_fonts/font = ExtResource("2_qqdmt")
+theme_override_font_sizes/font_size = 8
+text = "-10 HP"
+
 [node name="Player" parent="." instance=ExtResource("1_ebmjs")]
+z_index = 5
 position = Vector2(1, -9)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_3dryh")
